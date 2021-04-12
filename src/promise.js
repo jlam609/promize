@@ -10,18 +10,19 @@ const funcPromise = () =>
     } else res("funcPromise");
   });
 const chainedPromise = (promise) => {
-  let promiseA = new Promise((res, rej, err) => {
-    setTimeout(() => res(promise), 1000);
-  });
-  return promiseA
-    .then((data) => {
-        return setTimeout(() => Promise.resolve(data), 1000);
-    }).then((data) => {
-      return data;
+  if (promise) {
+    return new Promise(async (res, rej, err) => {
+      res(promise().then((data) => data));
     });
+  } else {
+    return new Promise(async (res, rej, err) => {
+      res(promise);
+    });
+  }
 };
-const rejectedPromise = () => new Promise((res, rej, err) => {
-     throw rej(new Error("rejectedPromise"))
-})
+const rejectedPromise = () =>
+  new Promise((res, rej, err) => {
+    throw rej(new Error("rejectedPromise"));
+  });
 
 module.exports = { basicPromise, chainedPromise, rejectedPromise, funcPromise };

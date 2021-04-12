@@ -11,7 +11,7 @@ describe('Part 2: Playing with Promises', () => {
     return expect(funcPromise()).resolves.toEqual('funcPromise');
   });
 
-  xit('expects "chainedPromise" to be a function that takes a promise as its arguments. It returns a promise that is not the promise passed to it, but that resolves to whatever the passed in promise resolves to', () => {
+  it('expects "chainedPromise" to be a function that takes a promise as its arguments. It returns a promise that is not the promise passed to it, but that resolves to whatever the passed in promise resolves to', () => {
     const mySuperSecretData = Math.random() * 100;
 
     const mySuperSecretPromise = new Promise(res => {
