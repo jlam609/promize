@@ -190,7 +190,7 @@ describe('Part 1: Sync/Async Callbacker', () => {
       }));
     });
 
-    describe('Extra Credit asyncCallbacker', () => {
+    xdescribe('Extra Credit asyncCallbacker', () => {
       it('can receive any number of functions greater than 2 as an argument', () => createRacifiedPromise(res => {
         const cbs = [(data, done) => setTimeout(() => {
           done(1);
